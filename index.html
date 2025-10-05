@@ -17,4 +17,100 @@
     #result {
       margin-top: 20px;
       font-size: 20px;
-      font-weight: bold
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>All Unit Converter</h1>
+  <input type="number" id="inputValue" placeholder="Enter value">
+
+  <br>
+
+  <select id="fromUnit">
+    <option value="meter">Meter</option>
+    <option value="kilometer">Kilometer</option>
+    <option value="mile">Mile</option>
+    <option value="foot">Foot</option>
+    <option value="inch">Inch</option>
+    <option value="centimeter">Centimeter</option>
+    <option value="yard">Yard</option>
+    <option value="gram">Gram</option>
+    <option value="kilogram">Kilogram</option>
+    <option value="pound">Pound</option>
+    <option value="ounce">Ounce</option>
+    <option value="liter">Liter</option>
+    <option value="milliliter">Milliliter</option>
+    <option value="gallon">Gallon</option>
+    <option value="celsius">Celsius</option>
+    <option value="fahrenheit">Fahrenheit</option>
+  </select>
+
+  <select id="toUnit">
+    <option value="meter">Meter</option>
+    <option value="kilometer">Kilometer</option>
+    <option value="mile">Mile</option>
+    <option value="foot">Foot</option>
+    <option value="inch">Inch</option>
+    <option value="centimeter">Centimeter</option>
+    <option value="yard">Yard</option>
+    <option value="gram">Gram</option>
+    <option value="kilogram">Kilogram</option>
+    <option value="pound">Pound</option>
+    <option value="ounce">Ounce</option>
+    <option value="liter">Liter</option>
+    <option value="milliliter">Milliliter</option>
+    <option value="gallon">Gallon</option>
+    <option value="celsius">Celsius</option>
+    <option value="fahrenheit">Fahrenheit</option>
+  </select>
+
+  <br>
+  <button onclick="convert()">Convert</button>
+
+  <div id="result"></div>
+
+  <script>
+    function convert() {
+      const value = parseFloat(document.getElementById("inputValue").value);
+      const from = document.getElementById("fromUnit").value;
+      const to = document.getElementById("toUnit").value;
+
+      let baseValue;
+
+      const conversions = {
+        meter: 1,
+        kilometer: 1000,
+        mile: 1609.34,
+        foot: 0.3048,
+        inch: 0.0254,
+        centimeter: 0.01,
+        yard: 0.9144,
+        gram: 1,
+        kilogram: 1000,
+        pound: 453.592,
+        ounce: 28.3495,
+        liter: 1,
+        milliliter: 0.001,
+        gallon: 3.78541
+      };
+
+      if (from === "celsius" && to === "fahrenheit") {
+        document.getElementById("result").innerText = `${(value * 9/5 + 32).toFixed(2)} °F`;
+        return;
+      } else if (from === "fahrenheit" && to === "celsius") {
+        document.getElementById("result").innerText = `${((value - 32) * 5/9).toFixed(2)} °C`;
+        return;
+      }
+
+      if (conversions[from] && conversions[to]) {
+        baseValue = value * conversions[from];
+        const converted = baseValue / conversions[to];
+        document.getElementById("result").innerText = `${converted.toFixed(4)} ${to}`;
+      } else {
+        document.getElementById("result").innerText = "Conversion not supported.";
+      }
+    }
+  </script>
+</body>
+</html>
