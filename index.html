@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Simple Calculator</title>
-</head>
-<body>
-  <h2>Simple Calculator</h2>
-  <p>Enter your age:</p>
-  <input type="text" id="age">
-  <button onclick="calculateAge()">Calculate Age</button>
-  <p id="result"></p>
-
-  <script>
-    function calculateAge() {
-      var age = document.getElementById("age").value;
-      age = parseInt(age);
-      document.getElementById("result").innerText = "Your age is " + age;
+  <title>All Unit Converter – Convert Any Unit Instantly</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #f4f4f4;
     }
-  </script>
-</body>
-</html>
+    select, input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold
