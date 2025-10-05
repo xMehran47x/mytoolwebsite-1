@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+</head>
+<body>
+  <h2>Simple Calculator</h2>
+  <p>Enter your age:</p>
+  <input type="text" id="age">
+  <button onclick="calculateAge()">Calculate Age</button>
+  <p id="result"></p>
+
+  <script>
+    function calculateAge() {
+      var age = document.getElementById("age").value;
+      age = parseInt(age);
+      document.getElementById("result").innerText = "Your age is " + age;
+    }
+  </script>
+</body>
+</html>
